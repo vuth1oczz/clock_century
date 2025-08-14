@@ -1,0 +1,375 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/sim/build
+T_opt
+!s110 1754446495
+V3YTN5HUk5gGRZcmUJ=>_M2
+04 14 4 work top_seconds_tb fast 0
+=1-1091d1b0ce5d-6892ba9e-350-1550
+Z2 !s124 OEM100
+Z3 o-quiet -auto_acc_if_foreign -work work +acc
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.1;73
+R1
+T_opt1
+!s110 1754529474
+VzWhDEk289z9em^_3;@YAn1
+04 6 4 work top_tb fast 0
+=1-1091d1b0ce5d-6893fec2-db-3014
+R2
+R3
+R4
+n@_opt1
+R5
+R1
+T_opt2
+!s110 1754493037
+VaJR?gmSK7<hY;Alod^TaH1
+04 6 4 work day_tb fast 0
+=1-1091d1b0ce5d-6893706d-de-5ba8
+R2
+R3
+R4
+n@_opt2
+R5
+R1
+vday_tb
+!s110 1754493036
+!i10b 1
+!s100 :F=9C9Z6I]dfBeeL>@QoA1
+IlXIK0lBR25F>aRd:C0d6X1
+R1
+w1754493005
+8../src/day_tb.v
+F../src/day_tb.v
+!i122 214
+L0 1 35
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2021.1;73
+r1
+!s85 0
+31
+!s108 1754493036.000000
+!s107 ../src/day_tb.v|
+!s90 -reportprogress|300|../src/day_tb.v|
+!i113 0
+Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+vdays
+Z9 !s110 1754649512
+!i10b 1
+!s100 :X8ZM2_2Yb:FT77XfoXR[0
+INP4`U50i<`:S:>TZI_z9l3
+R1
+w1754648977
+8../../hdl/day/days.v
+F../../hdl/day/days.v
+!i122 311
+L0 1 116
+R6
+R7
+r1
+!s85 0
+31
+Z10 !s108 1754649512.000000
+!s107 ../../hdl/day/days.v|
+!s90 -reportprogress|300|../../hdl/day/days.v|
+!i113 0
+R8
+R4
+vdecode
+R9
+!i10b 1
+!s100 nkkhUUUh<dKj`BPi_i02c1
+IChi`ZKAgBc>HiaKK4OfK?3
+R1
+w1754525835
+8../../hdl/led7/decode.v
+F../../hdl/led7/decode.v
+!i122 307
+L0 1 113
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/led7/decode.v|
+!s90 -reportprogress|300|../../hdl/led7/decode.v|
+!i113 0
+R8
+R4
+vhours
+R9
+!i10b 1
+!s100 I<fc61mhJcFGHkGnNVXC52
+I]fj:=h7ogO814MJPjQ_GZ2
+R1
+w1754645819
+8../../hdl/hour/hours.v
+F../../hdl/hour/hours.v
+!i122 310
+Z11 L0 1 86
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/hour/hours.v|
+!s90 -reportprogress|300|../../hdl/hour/hours.v|
+!i113 0
+R8
+R4
+vled7seg
+R9
+!i10b 1
+!s100 M8;X8jkcEcoo:jF51Q7i<1
+I8od9]_hAYWAj:7n[BLceX0
+R1
+w1754402404
+8../../hdl/led7/led7seg.v
+F../../hdl/led7/led7seg.v
+!i122 308
+L0 1 23
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/led7/led7seg.v|
+!s90 -reportprogress|300|../../hdl/led7/led7seg.v|
+!i113 0
+R8
+R4
+vminutes
+R9
+!i10b 1
+!s100 D`c97^02gP^WVf2XP6mJ>1
+I<PgMeMl?e62H^j34oaoaP0
+R1
+w1754644391
+8../../hdl/minute/minutes.v
+F../../hdl/minute/minutes.v
+!i122 309
+L0 1 84
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/minute/minutes.v|
+!s90 -reportprogress|300|../../hdl/minute/minutes.v|
+!i113 0
+R8
+R4
+vmonths
+R9
+!i10b 1
+!s100 E0VT7<m@V:`oLOWCJndNj0
+IDE?CE]D:eXWeU9P=QXk3H2
+R1
+w1754646557
+8../../hdl/month/months.v
+F../../hdl/month/months.v
+!i122 312
+L0 1 88
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/month/months.v|
+!s90 -reportprogress|300|../../hdl/month/months.v|
+!i113 0
+R8
+R4
+vseconds
+R9
+!i10b 1
+!s100 :dY4b:l3Zgi5g:iDYf=FP1
+IZL_`JRZSXP4R4L5@W[ABU1
+R1
+w1754645237
+8../../hdl/second/seconds.v
+F../../hdl/second/seconds.v
+!i122 305
+R11
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/second/seconds.v|
+!s90 -reportprogress|300|../../hdl/second/seconds.v|
+!i113 0
+R8
+R4
+vtick
+R9
+!i10b 1
+!s100 jGJj]ZLka9P9RKzIEO8Xn1
+I:>:^>Dd<d@i[NcOdfj3jR2
+R1
+w1754635886
+8../../hdl/second/tick.v
+F../../hdl/second/tick.v
+!i122 304
+L0 1 26
+R6
+R7
+r1
+!s85 0
+31
+!s108 1754649511.000000
+!s107 ../../hdl/second/tick.v|
+!s90 -reportprogress|300|../../hdl/second/tick.v|
+!i113 0
+R8
+R4
+vtop
+R9
+!i10b 1
+!s100 RQagiMF2VKlG=^;8hQ4jz0
+IWXz6Q?Y3RHWlcA7Z25od13
+R1
+w1754635235
+8../../hdl/top/top.v
+F../../hdl/top/top.v
+!i122 306
+L0 1 255
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/top/top.v|
+!s90 -reportprogress|300|../../hdl/top/top.v|
+!i113 0
+R8
+R4
+vtop_second
+Z12 !s110 1754446494
+!i10b 1
+!s100 Sb7KZW55K^Fjnh4GoLoe80
+IG82[_TgLG>ML2H];z?8zK0
+R1
+w1754445611
+8../../hdl/second/top_second.v
+F../../hdl/second/top_second.v
+!i122 24
+L0 1 33
+R6
+R7
+r1
+!s85 0
+31
+Z13 !s108 1754446494.000000
+!s107 ../../hdl/second/top_second.v|
+!s90 -reportprogress|300|../../hdl/second/top_second.v|
+!i113 0
+R8
+R4
+vtop_seconds_tb
+R12
+!i10b 1
+!s100 f<P5XLa:FDHFb6JTE[kZX1
+I]hkU:nP93I02UVGGbelk?0
+R1
+w1754446332
+8../src/top_seconds_tb.v
+F../src/top_seconds_tb.v
+!i122 27
+L0 1 40
+R6
+R7
+r1
+!s85 0
+31
+R13
+!s107 ../src/top_seconds_tb.v|
+!s90 -reportprogress|300|../src/top_seconds_tb.v|
+!i113 0
+R8
+R4
+vtop_tb
+!s110 1754529473
+!i10b 1
+!s100 Q`jMk1HH?;mjbo^@>Z5RO0
+I@NAjmnA]OoaUZSQ3LLgmh0
+R1
+w1754528546
+8../src/top_tb.v
+F../src/top_tb.v
+!i122 303
+L0 1 55
+R6
+R7
+r1
+!s85 0
+31
+!s108 1754529473.000000
+!s107 ../src/top_tb.v|
+!s90 -reportprogress|300|../src/top_tb.v|
+!i113 0
+R8
+R4
+vyears
+R9
+!i10b 1
+!s100 D<ETfUaM`mcMNS?5NZO^V2
+Il7Ab]Wez2^eUWBnKChn=I3
+R1
+w1754641130
+8../../hdl/year/years.v
+F../../hdl/year/years.v
+!i122 313
+L0 1 71
+R6
+R7
+r1
+!s85 0
+31
+R10
+!s107 ../../hdl/year/years.v|
+!s90 -reportprogress|300|../../hdl/year/years.v|
+!i113 0
+R8
+R4

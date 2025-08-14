@@ -1,0 +1,118 @@
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do vsim.cmd
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:31 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/second/tick.v 
+# -- Compiling module tick
+# 
+# Top level modules:
+# 	tick
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/second/seconds.v 
+# -- Compiling module seconds
+# 
+# Top level modules:
+# 	seconds
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/top/top.v 
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/led7/decode.v 
+# -- Compiling module decode
+# 
+# Top level modules:
+# 	decode
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/led7/led7seg.v 
+# -- Compiling module led7seg
+# 
+# Top level modules:
+# 	led7seg
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/minute/minutes.v 
+# -- Compiling module minutes
+# 
+# Top level modules:
+# 	minutes
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/hour/hours.v 
+# -- Compiling module hours
+# 
+# Top level modules:
+# 	hours
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/day/days.v 
+# -- Compiling module days
+# 
+# Top level modules:
+# 	days
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/month/months.v 
+# -- Compiling module months
+# 
+# Top level modules:
+# 	months
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../../hdl/year/years.v 
+# -- Compiling module years
+# 
+# Top level modules:
+# 	years
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 17:38:32 on Aug 08,2025
+# vlog -reportprogress 300 ../src/top_tb.v 
+# -- Compiling module top_tb
+# ** Error: ../src/top_tb.v(30): (vlog-2730) Undefined variable: 'setup_hour_month'.
+# ** Error: ../src/top_tb.v(31): (vlog-2730) Undefined variable: 'setup_minute_year'.
+# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: C:/questasim64_2021.1/win64/vlog failed.
+# Error in macro ./vsim.cmd line 11
+# C:/questasim64_2021.1/win64/vlog failed.
+#     while executing
+# "vlog ../src/top_tb.v"

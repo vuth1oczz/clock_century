@@ -1,0 +1,100 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+R0
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/DIGITAL_DESIGN/FPGA_trainning/clock_centry
+T_opt
+!s110 1754401489
+VGK@4:gKP99U8`bM=<faMC3
+04 10 4 work seconds_tb fast 0
+=1-1091d1b0ce5d-68920ad1-42-5d8c
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2021.1;73
+vseconds
+Z3 !s110 1754401488
+!i10b 1
+!s100 Z=O`;Mb4?_iQM65V0]Q290
+I`L13SA;_^zJQfCM[:Qj>l3
+R1
+w1754400579
+8seconds.v
+Fseconds.v
+!i122 44
+L0 1 56
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z6 !s108 1754401488.000000
+!s107 seconds.v|
+!s90 -reportprogress|300|seconds.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vseconds_tb
+R3
+!i10b 1
+!s100 Ce0NI;VJHRD0HaVe8XI171
+I[diV^MBJ]Z9JFGSNBElMG3
+R1
+w1754401463
+8seconds_tb.v
+Fseconds_tb.v
+!i122 45
+L0 1 40
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 seconds_tb.v|
+!s90 -reportprogress|300|seconds_tb.v|
+!i113 0
+R7
+R2
+vtick
+R3
+!i10b 1
+!s100 J9MSFZBCYHT7U?K14JOjZ2
+I1AbdP>iVXD=4bY6in0ZT;3
+R1
+w1754399105
+8tick.v
+Ftick.v
+!i122 43
+L0 1 26
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 tick.v|
+!s90 -reportprogress|300|tick.v|
+!i113 0
+R7
+R2
