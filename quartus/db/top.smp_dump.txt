@@ -1,0 +1,8 @@
+
+State Machine - |top|control_unit:control_unit|cs
+Name cs.SETUP_MIN cs.SETUP_SEC cs.SETUP cs.DISPLAY cs.SETUP_HOUR 
+cs.DISPLAY 0 0 0 0 0 
+cs.SETUP 0 0 1 1 0 
+cs.SETUP_SEC 0 1 0 1 0 
+cs.SETUP_MIN 1 0 0 1 0 
+cs.SETUP_HOUR 0 0 0 1 1 

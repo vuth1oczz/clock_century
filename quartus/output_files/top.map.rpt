@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Tue Aug 12 09:22:50 2025
+Sun Aug 17 00:06:12 2025
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -13,20 +13,31 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "decode:decode_month"
- 13. Port Connectivity Checks: "decode:decode_day"
- 14. Port Connectivity Checks: "decode:decode_hour"
- 15. Port Connectivity Checks: "decode:decode_min"
- 16. Port Connectivity Checks: "decode:decode_sec"
- 17. Port Connectivity Checks: "years:years"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |top|control_unit:control_unit|cs
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_sec
+ 15. Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_min
+ 16. Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_hour
+ 17. Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_day
+ 18. Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_month
+ 19. Parameter Settings for User Entity Instance: encode_bcd:bcd_encode_year
+ 20. Port Connectivity Checks: "bcd_encode:bcd_encode_month"
+ 21. Port Connectivity Checks: "bcd_encode:bcd_encode_day"
+ 22. Port Connectivity Checks: "bcd_encode:bcd_encode_hour"
+ 23. Port Connectivity Checks: "bcd_encode:bcd_encode_min"
+ 24. Port Connectivity Checks: "bcd_encode:bcd_encode_sec"
+ 25. Port Connectivity Checks: "years:years"
+ 26. Port Connectivity Checks: "days:days"
+ 27. Port Connectivity Checks: "seconds:seconds"
+ 28. Port Connectivity Checks: "control_unit:control_unit"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,15 +64,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Aug 12 09:22:50 2025          ;
+; Analysis & Synthesis Status        ; Successful - Sun Aug 17 00:06:12 2025          ;
 ; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                      ; top                                            ;
 ; Top-level Entity Name              ; top                                            ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 407                                            ;
-;     Total combinational functions  ; 407                                            ;
-;     Dedicated logic registers      ; 68                                             ;
-; Total registers                    ; 68                                             ;
+; Total logic elements               ; 563                                            ;
+;     Total combinational functions  ; 563                                            ;
+;     Dedicated logic registers      ; 89                                             ;
+; Total registers                    ; 89                                             ;
 ; Total pins                         ; 64                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -164,107 +175,142 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 22          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; ../hdl/year/years.v              ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/year/years.v     ;         ;
-; ../hdl/top/top.v                 ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v        ;         ;
-; ../hdl/second/tick.v             ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/tick.v    ;         ;
-; ../hdl/second/seconds.v          ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/seconds.v ;         ;
-; ../hdl/month/months.v            ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/month/months.v   ;         ;
-; ../hdl/minute/minutes.v          ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/minute/minutes.v ;         ;
-; ../hdl/led7/led7seg.v            ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/led7seg.v   ;         ;
-; ../hdl/led7/decode.v             ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v    ;         ;
-; ../hdl/hour/hours.v              ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/hour/hours.v     ;         ;
-; ../hdl/day/days.v                ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/day/days.v       ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                     ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
+; ../hdl/encode_bcd.v              ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/encode_bcd.v   ;         ;
+; ../hdl/bcd_encode.v              ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/bcd_encode.v   ;         ;
+; ../hdl/years.v                   ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/years.v        ;         ;
+; ../hdl/top.v                     ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v          ;         ;
+; ../hdl/tick.v                    ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/tick.v         ;         ;
+; ../hdl/seconds.v                 ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v      ;         ;
+; ../hdl/months.v                  ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/months.v       ;         ;
+; ../hdl/minutes.v                 ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/minutes.v      ;         ;
+; ../hdl/led7seg.v                 ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7seg.v      ;         ;
+; ../hdl/hours.v                   ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/hours.v        ;         ;
+; ../hdl/days.v                    ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/days.v         ;         ;
+; ../hdl/control_unit.v            ; yes             ; User Verilog HDL File  ; D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                      ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Estimated Total logic elements              ; 407                ;
-;                                             ;                    ;
-; Total combinational functions               ; 407                ;
-; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 223                ;
-;     -- 3 input functions                    ; 112                ;
-;     -- <=2 input functions                  ; 72                 ;
-;                                             ;                    ;
-; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 351                ;
-;     -- arithmetic mode                      ; 56                 ;
-;                                             ;                    ;
-; Total registers                             ; 68                 ;
-;     -- Dedicated logic registers            ; 68                 ;
-;     -- I/O registers                        ; 0                  ;
-;                                             ;                    ;
-; I/O pins                                    ; 64                 ;
-;                                             ;                    ;
-; Embedded Multiplier 9-bit elements          ; 0                  ;
-;                                             ;                    ;
-; Maximum fan-out node                        ; swap_display~input ;
-; Maximum fan-out                             ; 72                 ;
-; Total fan-out                               ; 1785               ;
-; Average fan-out                             ; 2.96               ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 563       ;
+;                                             ;           ;
+; Total combinational functions               ; 563       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 359       ;
+;     -- 3 input functions                    ; 122       ;
+;     -- <=2 input functions                  ; 82        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 493       ;
+;     -- arithmetic mode                      ; 70        ;
+;                                             ;           ;
+; Total registers                             ; 89        ;
+;     -- Dedicated logic registers            ; 89        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 64        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 89        ;
+; Total fan-out                               ; 2439      ;
+; Average fan-out                             ; 3.13      ;
++---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                       ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Entity Name ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
-; |top                            ; 407 (69)            ; 68 (0)                    ; 0           ; 0            ; 0       ; 0         ; 64   ; 0            ; |top                            ; top         ; work         ;
-;    |days:days|                  ; 36 (36)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|days:days                  ; days        ; work         ;
-;    |decode:decode_day|          ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_day          ; decode      ; work         ;
-;    |decode:decode_hour|         ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_hour         ; decode      ; work         ;
-;    |decode:decode_min|          ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_min          ; decode      ; work         ;
-;    |decode:decode_month|        ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_month        ; decode      ; work         ;
-;    |decode:decode_sec|          ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_sec          ; decode      ; work         ;
-;    |decode:decode_year|         ; 28 (28)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|decode:decode_year         ; decode      ; work         ;
-;    |hours:hours|                ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hours:hours                ; hours       ; work         ;
-;    |led7seg:led7seg_tens_min|   ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_min   ; led7seg     ; work         ;
-;    |led7seg:led7seg_tens_sec|   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_sec   ; led7seg     ; work         ;
-;    |led7seg:led7seg_tens_year|  ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_year  ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_day|   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_day   ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_hour|  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_hour  ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_min|   ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_min   ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_month| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_month ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_sec|   ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_sec   ; led7seg     ; work         ;
-;    |led7seg:led7seg_unit_year|  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_year  ; led7seg     ; work         ;
-;    |minutes:mintues|            ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|minutes:mintues            ; minutes     ; work         ;
-;    |months:months|              ; 27 (27)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|months:months              ; months      ; work         ;
-;    |seconds:seconds|            ; 20 (20)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|seconds:seconds            ; seconds     ; work         ;
-;    |tick:ticks|                 ; 48 (48)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|tick:ticks                 ; tick        ; work         ;
-;    |years:years|                ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|years:years                ; years       ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Entity Name  ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+--------------+
+; |top                               ; 563 (87)            ; 89 (6)                    ; 0           ; 0            ; 0       ; 0         ; 64   ; 0            ; |top                               ; top          ; work         ;
+;    |bcd_encode:bcd_encode_day|     ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|bcd_encode:bcd_encode_day     ; bcd_encode   ; work         ;
+;    |bcd_encode:bcd_encode_hour|    ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|bcd_encode:bcd_encode_hour    ; bcd_encode   ; work         ;
+;    |bcd_encode:bcd_encode_min|     ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|bcd_encode:bcd_encode_min     ; bcd_encode   ; work         ;
+;    |bcd_encode:bcd_encode_month|   ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|bcd_encode:bcd_encode_month   ; bcd_encode   ; work         ;
+;    |bcd_encode:bcd_encode_sec|     ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|bcd_encode:bcd_encode_sec     ; bcd_encode   ; work         ;
+;    |control_unit:control_unit|     ; 24 (24)             ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|control_unit:control_unit     ; control_unit ; work         ;
+;    |days:days|                     ; 33 (33)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|days:days                     ; days         ; work         ;
+;    |encode_bcd:bcd_encode_year|    ; 124 (124)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|encode_bcd:bcd_encode_year    ; encode_bcd   ; work         ;
+;    |hours:hours|                   ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|hours:hours                   ; hours        ; work         ;
+;    |led7seg:led7seg_hund_year|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_hund_year     ; led7seg      ; work         ;
+;    |led7seg:led7seg_tens_hour|     ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_hour     ; led7seg      ; work         ;
+;    |led7seg:led7seg_tens_min|      ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_min      ; led7seg      ; work         ;
+;    |led7seg:led7seg_tens_year|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_tens_year     ; led7seg      ; work         ;
+;    |led7seg:led7seg_thousand_year| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_thousand_year ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_day|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_day      ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_hour|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_hour     ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_min|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_min      ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_month|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_month    ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_sec|      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_sec      ; led7seg      ; work         ;
+;    |led7seg:led7seg_unit_year|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|led7seg:led7seg_unit_year     ; led7seg      ; work         ;
+;    |minutes:mintues|               ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|minutes:mintues               ; minutes      ; work         ;
+;    |months:months|                 ; 30 (30)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|months:months                 ; months       ; work         ;
+;    |seconds:seconds|               ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|seconds:seconds               ; seconds      ; work         ;
+;    |tick:ticks|                    ; 52 (52)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|tick:ticks                    ; tick         ; work         ;
+;    |years:years|                   ; 43 (43)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|years:years                   ; years        ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+----------------------------------------------------+----------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
-+----------------------------------------------------+----------------------+------------------------+
-; seconds:seconds|done                               ; seconds:seconds|done ; yes                    ;
-; Number of user-specified and inferred latches = 1  ;                      ;                        ;
-+----------------------------------------------------+----------------------+------------------------+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |top|control_unit:control_unit|cs                                   ;
++---------------+--------------+--------------+----------+------------+---------------+
+; Name          ; cs.SETUP_MIN ; cs.SETUP_SEC ; cs.SETUP ; cs.DISPLAY ; cs.SETUP_HOUR ;
++---------------+--------------+--------------+----------+------------+---------------+
+; cs.DISPLAY    ; 0            ; 0            ; 0        ; 0          ; 0             ;
+; cs.SETUP      ; 0            ; 0            ; 1        ; 1          ; 0             ;
+; cs.SETUP_SEC  ; 0            ; 1            ; 0        ; 1          ; 0             ;
+; cs.SETUP_MIN  ; 1            ; 0            ; 0        ; 1          ; 0             ;
+; cs.SETUP_HOUR ; 0            ; 0            ; 0        ; 1          ; 1             ;
++---------------+--------------+--------------+----------+------------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++----------------------------------------------------+-------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                 ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------------+------------------------+
+; control_unit:control_unit|ns.SETUP_MIN_160         ; control_unit:control_unit|Selector2 ; yes                    ;
+; control_unit:control_unit|ns.SETUP_HOUR_147        ; control_unit:control_unit|Selector2 ; yes                    ;
+; control_unit:control_unit|ns.SETUP_SEC_173         ; control_unit:control_unit|Selector2 ; yes                    ;
+; seconds:seconds|done                               ; seconds:seconds|done                ; yes                    ;
+; control_unit:control_unit|ns.SETUP_186             ; control_unit:control_unit|Selector2 ; yes                    ;
+; control_unit:control_unit|ns.DISPLAY_199           ; control_unit:control_unit|Selector2 ; yes                    ;
+; Number of user-specified and inferred latches = 6  ;                                     ;                        ;
++----------------------------------------------------+-------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; control_unit:control_unit|cs~4        ; Lost fanout        ;
+; control_unit:control_unit|cs~5        ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -272,92 +318,162 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 68    ;
+; Total registers                              ; 89    ;
 ; Number of registers using Synchronous Clear  ; 6     ;
-; Number of registers using Synchronous Load   ; 25    ;
-; Number of registers using Asynchronous Clear ; 68    ;
+; Number of registers using Synchronous Load   ; 20    ;
+; Number of registers using Asynchronous Clear ; 89    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Clock Enable       ; 46    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; years:years|years[3]                   ; 19      ;
-; years:years|years[4]                   ; 21      ;
-; years:years|years[0]                   ; 5       ;
-; months:months|months[0]                ; 19      ;
-; days:days|days[0]                      ; 11      ;
-; Total number of inverted registers = 5 ;         ;
-+----------------------------------------+---------+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; months:months|months[0]                 ; 13      ;
+; days:days|days[0]                       ; 12      ;
+; years:years|years[4]                    ; 7       ;
+; years:years|years[7]                    ; 6       ;
+; years:years|years[10]                   ; 7       ;
+; years:years|years[9]                    ; 7       ;
+; years:years|years[8]                    ; 7       ;
+; years:years|years[6]                    ; 6       ;
+; setup_month                             ; 1       ;
+; setup_minute                            ; 1       ;
+; setup_day                               ; 1       ;
+; setup_hour                              ; 1       ;
+; setup_year                              ; 1       ;
+; setup_second                            ; 2       ;
+; Total number of inverted registers = 14 ;         ;
++-----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |top|days:days|days[3]           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|years:years|years[1]        ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |top|months:months|months[4]     ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|months:months|months[2]     ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|seconds:seconds|sec[0]      ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|hours:hours|hour[5]         ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|minutes:mintues|min[5]      ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top|years:years|years[0]        ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top|hours:hours|hour_next[0]    ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |top|months:months|month_next[0] ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |top|led_tens_hour_year          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|days:days|days[2]          ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|minutes:mintues|min[4]     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|hours:hours|hour[2]        ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top|years:years|years[2]       ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|seconds:seconds|sec[2]     ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |top|months:months|months[5]    ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top|years:years|years[7]       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|led_tens_min_month         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|led_unit_second_day        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |top|led_unit_hour_year_default ;
+; 10:1               ; 6 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |top|led_tens_hour_year_default ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
-+-------------------------------------------------+
-; Port Connectivity Checks: "decode:decode_month" ;
-+------+-------+----------+-----------------------+
-; Port ; Type  ; Severity ; Details               ;
-+------+-------+----------+-----------------------+
-; a[6] ; Input ; Info     ; Stuck at GND          ;
-+------+-------+----------+-----------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_sec ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 8     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------+
-; Port Connectivity Checks: "decode:decode_day" ;
-+------+-------+----------+---------------------+
-; Port ; Type  ; Severity ; Details             ;
-+------+-------+----------+---------------------+
-; a[6] ; Input ; Info     ; Stuck at GND        ;
-+------+-------+----------+---------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_min ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 8     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------+
-; Port Connectivity Checks: "decode:decode_hour" ;
-+------+-------+----------+----------------------+
-; Port ; Type  ; Severity ; Details              ;
-+------+-------+----------+----------------------+
-; a[6] ; Input ; Info     ; Stuck at GND         ;
-+------+-------+----------+----------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_hour ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 8     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------+
-; Port Connectivity Checks: "decode:decode_min" ;
-+------+-------+----------+---------------------+
-; Port ; Type  ; Severity ; Details             ;
-+------+-------+----------+---------------------+
-; a[6] ; Input ; Info     ; Stuck at GND        ;
-+------+-------+----------+---------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_day ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 8     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------+
-; Port Connectivity Checks: "decode:decode_sec" ;
-+------+-------+----------+---------------------+
-; Port ; Type  ; Severity ; Details             ;
-+------+-------+----------+---------------------+
-; a[6] ; Input ; Info     ; Stuck at GND        ;
-+------+-------+----------+---------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bcd_encode:bcd_encode_month ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 8     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: encode_bcd:bcd_encode_year ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; N              ; 16    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "bcd_encode:bcd_encode_month" ;
++---------------+-------+----------+----------------------+
+; Port          ; Type  ; Severity ; Details              ;
++---------------+-------+----------+----------------------+
+; decimal[7..6] ; Input ; Info     ; Stuck at GND         ;
++---------------+-------+----------+----------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "bcd_encode:bcd_encode_day" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; decimal[7..6] ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "bcd_encode:bcd_encode_hour" ;
++---------------+-------+----------+---------------------+
+; Port          ; Type  ; Severity ; Details             ;
++---------------+-------+----------+---------------------+
+; decimal[7..6] ; Input ; Info     ; Stuck at GND        ;
++---------------+-------+----------+---------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "bcd_encode:bcd_encode_min" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; decimal[7..6] ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "bcd_encode:bcd_encode_sec"                                                                                                                                                            ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; decimal    ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; decimal[7] ; Input ; Info     ; Stuck at GND                                                                                                                                                                     ;
++------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -369,32 +485,58 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "days:days"                                                                                                                                                                            ;
++-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                           ;
++-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; curr_year ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (7 bits) it drives.  The 9 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seconds:seconds"                                                                                                                                                        ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                                               ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; second ; Output ; Warning  ; Output or bidir port (6 bits) is smaller than the port expression (7 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
++--------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control_unit:control_unit"                                                                                                                          ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                                                                                                                      ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; swap_display ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 64                          ;
-; cycloneiii_ff         ; 68                          ;
-;     CLR               ; 28                          ;
+; cycloneiii_ff         ; 89                          ;
+;     CLR               ; 39                          ;
 ;     CLR SCLR          ; 4                           ;
-;     ENA CLR           ; 9                           ;
+;     ENA CLR           ; 24                          ;
 ;     ENA CLR SCLR      ; 2                           ;
-;     ENA CLR SLD       ; 25                          ;
-; cycloneiii_lcell_comb ; 412                         ;
-;     arith             ; 56                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 30                          ;
-;         3 data inputs ; 25                          ;
-;     normal            ; 356                         ;
+;     ENA CLR SLD       ; 20                          ;
+; cycloneiii_lcell_comb ; 563                         ;
+;     arith             ; 70                          ;
+;         2 data inputs ; 40                          ;
+;         3 data inputs ; 30                          ;
+;     normal            ; 493                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 87                          ;
-;         4 data inputs ; 223                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 37                          ;
+;         3 data inputs ; 92                          ;
+;         4 data inputs ; 359                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.97                        ;
+; Max LUT depth         ; 18.00                       ;
+; Average LUT depth     ; 7.24                        ;
 +-----------------------+-----------------------------+
 
 
@@ -403,7 +545,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -413,73 +555,123 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue Aug 12 09:22:17 2025
+    Info: Processing started: Sun Aug 17 00:05:14 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/year/years.v
-    Info (12023): Found entity 1: years File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/year/years.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/top/top.v
-    Info (12023): Found entity 1: top File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/second/tick.v
-    Info (12023): Found entity 1: tick File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/tick.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/second/seconds.v
-    Info (12023): Found entity 1: seconds File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/seconds.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/month/months.v
-    Info (12023): Found entity 1: months File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/month/months.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/minute/minutes.v
-    Info (12023): Found entity 1: minutes File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/minute/minutes.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/led7/led7seg.v
-    Info (12023): Found entity 1: led7seg File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/led7seg.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/led7/decode.v
-    Info (12023): Found entity 1: decode File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/hour/hours.v
-    Info (12023): Found entity 1: hours File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/hour/hours.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/day/days.v
-    Info (12023): Found entity 1: days File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/day/days.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/encode_bcd.v
+    Info (12023): Found entity 1: encode_bcd File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/encode_bcd.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/bcd_encode.v
+    Info (12023): Found entity 1: bcd_encode File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/bcd_encode.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/years.v
+    Info (12023): Found entity 1: years File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/years.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/top.v
+    Info (12023): Found entity 1: top File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/tick.v
+    Info (12023): Found entity 1: tick File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/tick.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/seconds.v
+    Info (12023): Found entity 1: seconds File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/months.v
+    Info (12023): Found entity 1: months File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/months.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/minutes.v
+    Info (12023): Found entity 1: minutes File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/minutes.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/led7seg.v
+    Info (12023): Found entity 1: led7seg File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/hours.v
+    Info (12023): Found entity 1: hours File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/hours.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/decode.v
+    Info (12023): Found entity 1: decode File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/decode.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/days.v
+    Info (12023): Found entity 1: days File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/days.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /digital_design/fpga_trainning/clock_centry/hdl/control_unit.v
+    Info (12023): Found entity 1: control_unit File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 1
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "tick" for hierarchy "tick:ticks" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 72
-Info (12128): Elaborating entity "seconds" for hierarchy "seconds:seconds" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 82
-Warning (10240): Verilog HDL Always Construct warning at seconds.v(35): inferring latch(es) for variable "done", which holds its previous value in one or more paths through the always construct File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/seconds.v Line: 35
-Info (10041): Inferred latch for "done" at seconds.v(50) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/seconds.v Line: 50
-Info (12128): Elaborating entity "minutes" for hierarchy "minutes:mintues" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 94
-Info (12128): Elaborating entity "hours" for hierarchy "hours:hours" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 105
-Info (12128): Elaborating entity "days" for hierarchy "days:days" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 118
-Warning (10230): Verilog HDL assignment warning at days.v(63): truncated value with size 32 to match size of target (6) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/day/days.v Line: 63
-Info (12128): Elaborating entity "months" for hierarchy "months:months" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 129
-Info (12128): Elaborating entity "years" for hierarchy "years:years" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 140
-Info (12128): Elaborating entity "decode" for hierarchy "decode:decode_sec" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 151
-Info (12128): Elaborating entity "led7seg" for hierarchy "led7seg:led7seg_unit_sec" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 180
-Info (276014): Found 12 instances of uninferred RAM logic
-    Info (276004): RAM logic "decode:decode_sec|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_month|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_sec|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_month|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_day|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_day|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_hour|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_year|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_hour|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_year|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_min|Ram0" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-    Info (276004): RAM logic "decode:decode_min|Ram1" is uninferred due to inappropriate RAM size File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/led7/decode.v Line: 8
-Warning (13012): Latch seconds:seconds|done has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/second/seconds.v Line: 14
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal display File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top/top.v Line: 4
-Info (13000): Registers with preset signals will power-up high File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/month/months.v Line: 20
+Warning (10235): Verilog HDL Always Construct warning at top.v(280): variable "led_unit_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 280
+Warning (10235): Verilog HDL Always Construct warning at top.v(281): variable "led_tens_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 281
+Warning (10235): Verilog HDL Always Construct warning at top.v(282): variable "led_unit_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 282
+Warning (10235): Verilog HDL Always Construct warning at top.v(283): variable "led_tens_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 283
+Warning (10235): Verilog HDL Always Construct warning at top.v(284): variable "led_unit_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 284
+Warning (10235): Verilog HDL Always Construct warning at top.v(285): variable "led_tens_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 285
+Warning (10235): Verilog HDL Always Construct warning at top.v(289): variable "led_unit_month" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 289
+Warning (10235): Verilog HDL Always Construct warning at top.v(290): variable "led_tens_month" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 290
+Warning (10235): Verilog HDL Always Construct warning at top.v(291): variable "led_unit_day" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 291
+Warning (10235): Verilog HDL Always Construct warning at top.v(292): variable "led_tens_day" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 292
+Warning (10235): Verilog HDL Always Construct warning at top.v(293): variable "led_unit_year" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 293
+Warning (10235): Verilog HDL Always Construct warning at top.v(294): variable "led_tens_year" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 294
+Warning (10235): Verilog HDL Always Construct warning at top.v(295): variable "led_thousand_year" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 295
+Warning (10235): Verilog HDL Always Construct warning at top.v(296): variable "led_hund_year" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 296
+Warning (10235): Verilog HDL Always Construct warning at top.v(304): variable "led_unit_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 304
+Warning (10235): Verilog HDL Always Construct warning at top.v(305): variable "led_tens_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 305
+Warning (10235): Verilog HDL Always Construct warning at top.v(312): variable "led_tens_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 312
+Warning (10235): Verilog HDL Always Construct warning at top.v(313): variable "led_unit_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 313
+Warning (10235): Verilog HDL Always Construct warning at top.v(320): variable "led_unit_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 320
+Warning (10235): Verilog HDL Always Construct warning at top.v(321): variable "led_tens_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 321
+Warning (10235): Verilog HDL Always Construct warning at top.v(326): variable "led_unit_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 326
+Warning (10235): Verilog HDL Always Construct warning at top.v(327): variable "led_tens_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 327
+Warning (10235): Verilog HDL Always Construct warning at top.v(328): variable "led_tens_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 328
+Warning (10235): Verilog HDL Always Construct warning at top.v(329): variable "led_unit_min" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 329
+Warning (10235): Verilog HDL Always Construct warning at top.v(330): variable "led_unit_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 330
+Warning (10235): Verilog HDL Always Construct warning at top.v(331): variable "led_tens_hour" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 331
+Info (12128): Elaborating entity "tick" for hierarchy "tick:ticks" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 86
+Warning (10235): Verilog HDL Always Construct warning at tick.v(30): variable "tick_blink" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/tick.v Line: 30
+Warning (10235): Verilog HDL Always Construct warning at tick.v(32): variable "tick_blink" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/tick.v Line: 32
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:control_unit" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 102
+Warning (10240): Verilog HDL Always Construct warning at control_unit.v(30): inferring latch(es) for variable "ns", which holds its previous value in one or more paths through the always construct File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (10041): Inferred latch for "ns.SETUP_HOUR" at control_unit.v(30) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (10041): Inferred latch for "ns.SETUP_MIN" at control_unit.v(30) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (10041): Inferred latch for "ns.SETUP_SEC" at control_unit.v(30) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (10041): Inferred latch for "ns.SETUP" at control_unit.v(30) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (10041): Inferred latch for "ns.DISPLAY" at control_unit.v(30) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+Info (12128): Elaborating entity "seconds" for hierarchy "seconds:seconds" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 112
+Warning (10235): Verilog HDL Always Construct warning at seconds.v(48): variable "setup_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 48
+Warning (10235): Verilog HDL Always Construct warning at seconds.v(55): variable "inc_dec_second" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 55
+Warning (10240): Verilog HDL Always Construct warning at seconds.v(32): inferring latch(es) for variable "done", which holds its previous value in one or more paths through the always construct File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 32
+Info (10041): Inferred latch for "done" at seconds.v(48) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 48
+Info (12128): Elaborating entity "minutes" for hierarchy "minutes:mintues" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 124
+Info (12128): Elaborating entity "hours" for hierarchy "hours:hours" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 136
+Info (12128): Elaborating entity "days" for hierarchy "days:days" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 150
+Warning (10235): Verilog HDL Always Construct warning at days.v(46): variable "nhuan" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/days.v Line: 46
+Warning (10230): Verilog HDL assignment warning at days.v(64): truncated value with size 32 to match size of target (6) File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/days.v Line: 64
+Info (12128): Elaborating entity "months" for hierarchy "months:months" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 161
+Info (12128): Elaborating entity "years" for hierarchy "years:years" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 172
+Info (12128): Elaborating entity "bcd_encode" for hierarchy "bcd_encode:bcd_encode_sec" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 185
+Info (12128): Elaborating entity "encode_bcd" for hierarchy "encode_bcd:bcd_encode_year" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 222
+Info (12128): Elaborating entity "led7seg" for hierarchy "led7seg:led7seg_unit_sec" File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 226
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "second[6]" is missing source, defaulting to GND File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 19
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "second[6]" is missing source, defaulting to GND File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 19
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "second[6]" is missing source, defaulting to GND File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 19
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch control_unit:control_unit|ns.SETUP_MIN_160 has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal setup_minute_month File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 7
+Warning (13012): Latch control_unit:control_unit|ns.SETUP_HOUR_147 has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal setup_second_day File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 6
+Warning (13012): Latch control_unit:control_unit|ns.SETUP_SEC_173 has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal setup_second_day File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 6
+Warning (13012): Latch seconds:seconds|done has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/seconds.v Line: 14
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal display File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/top.v Line: 4
+Warning (13012): Latch control_unit:control_unit|ns.SETUP_186 has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_unit:control_unit|cs.SETUP File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 16
+Warning (13012): Latch control_unit:control_unit|ns.DISPLAY_199 has unsafe behavior File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 30
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal control_unit:control_unit|cs.SETUP File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/control_unit.v Line: 16
+Info (13000): Registers with preset signals will power-up high File: D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/hdl/months.v Line: 21
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/DIGITAL_DESIGN/FPGA_trainning/clock_centry/quartus/output_files/top.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 472 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 632 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 56 output pins
-    Info (21061): Implemented 408 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info (21061): Implemented 568 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
     Info: Peak virtual memory: 4906 megabytes
-    Info: Processing ended: Tue Aug 12 09:22:50 2025
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:45
+    Info: Processing ended: Sun Aug 17 00:06:12 2025
+    Info: Elapsed time: 00:00:58
+    Info: Total CPU time (on all processors): 00:01:07
 
 
 +------------------------------------------+

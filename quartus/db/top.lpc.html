@@ -16,6 +16,38 @@
 <TH>Output only Bidir</TH>
 </TR>
 <TR >
+<TD >led7seg_thousand_year</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >led7seg_hund_year</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
 <TD >led7seg_tens_year</TD>
 <TD >4</TD>
 <TD >0</TD>
@@ -208,31 +240,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >decode_year</TD>
-<TD >7</TD>
+<TD >bcd_encode_year</TD>
+<TD >16</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >8</TD>
+<TD >17</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >decode_month</TD>
-<TD >7</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >8</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -240,15 +256,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >decode_day</TD>
-<TD >7</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >1</TD>
+<TD >bcd_encode_month</TD>
 <TD >8</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >2</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -256,15 +272,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >decode_hour</TD>
-<TD >7</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >1</TD>
+<TD >bcd_encode_day</TD>
 <TD >8</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >2</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -272,15 +288,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >decode_min</TD>
-<TD >7</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >1</TD>
+<TD >bcd_encode_hour</TD>
 <TD >8</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >2</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -288,8 +304,24 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >decode_sec</TD>
-<TD >7</TD>
+<TD >bcd_encode_min</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >2</TD>
+<TD >8</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >bcd_encode_sec</TD>
+<TD >8</TD>
 <TD >1</TD>
 <TD >0</TD>
 <TD >1</TD>
@@ -309,7 +341,7 @@
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >8</TD>
+<TD >17</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -337,9 +369,9 @@
 </TR>
 <TR >
 <TD >days</TD>
-<TD >20</TD>
+<TD >21</TD>
 <TD >0</TD>
-<TD >5</TD>
+<TD >7</TD>
 <TD >0</TD>
 <TD >7</TD>
 <TD >0</TD>
@@ -400,12 +432,28 @@
 <TD >0</TD>
 </TR>
 <TR >
+<TD >control_unit</TD>
+<TD >7</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >3</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
 <TD >ticks</TD>
 <TD >2</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
-<TD >1</TD>
+<TD >2</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>

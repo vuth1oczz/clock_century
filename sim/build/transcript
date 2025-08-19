@@ -12,107 +12,39 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# do vsim.cmd
+# do vsim_cu.cmd
 # QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:31 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/second/tick.v 
-# -- Compiling module tick
+# Start time: 07:20:44 on Aug 16,2025
+# vlog -reportprogress 300 ../../hdl/bcd_encode.v 
+# -- Compiling module bcd_encode
 # 
 # Top level modules:
-# 	tick
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:01
+# 	bcd_encode
+# End time: 07:20:44 on Aug 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/second/seconds.v 
-# -- Compiling module seconds
+# Start time: 07:20:44 on Aug 16,2025
+# vlog -reportprogress 300 ../src/encode_bcd_tb.v 
+# -- Compiling module bcd_encode_tb
 # 
 # Top level modules:
-# 	seconds
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
+# 	bcd_encode_tb
+# End time: 07:20:44 on Aug 16,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/top/top.v 
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/led7/decode.v 
-# -- Compiling module decode
-# 
-# Top level modules:
-# 	decode
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/led7/led7seg.v 
-# -- Compiling module led7seg
-# 
-# Top level modules:
-# 	led7seg
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/minute/minutes.v 
-# -- Compiling module minutes
-# 
-# Top level modules:
-# 	minutes
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/hour/hours.v 
-# -- Compiling module hours
-# 
-# Top level modules:
-# 	hours
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/day/days.v 
-# -- Compiling module days
-# 
-# Top level modules:
-# 	days
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/month/months.v 
-# -- Compiling module months
-# 
-# Top level modules:
-# 	months
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../../hdl/year/years.v 
-# -- Compiling module years
-# 
-# Top level modules:
-# 	years
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:38:32 on Aug 08,2025
-# vlog -reportprogress 300 ../src/top_tb.v 
-# -- Compiling module top_tb
-# ** Error: ../src/top_tb.v(30): (vlog-2730) Undefined variable: 'setup_hour_month'.
-# ** Error: ../src/top_tb.v(31): (vlog-2730) Undefined variable: 'setup_minute_year'.
-# End time: 17:38:32 on Aug 08,2025, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/questasim64_2021.1/win64/vlog failed.
-# Error in macro ./vsim.cmd line 11
-# C:/questasim64_2021.1/win64/vlog failed.
-#     while executing
-# "vlog ../src/top_tb.v"
+# vsim -voptargs="+acc" bcd_encode_tb 
+# Start time: 07:20:44 on Aug 16,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading work.bcd_encode_tb(fast)
+# Loading work.bcd_encode(fast)
+# t=0 decimal=0 -> thousand=0 hund=0 tens=0 unit=0
+# t=30000 decimal=5643 -> thousand=5 hund=6 tens=4 unit=3
+# t=1050000 decimal=4562 -> thousand=4 hund=5 tens=6 unit=2
+# t=3070000 decimal=4563 -> thousand=4 hund=5 tens=6 unit=3
+# t=5090000 decimal=9999 -> thousand=9 hund=9 tens=9 unit=9
+# t=5300000 decimal=123 -> thousand=0 hund=1 tens=2 unit=3
+# t=5510000 decimal=255 -> thousand=0 hund=2 tens=5 unit=5
+# t=5720000 decimal=200 -> thousand=0 hund=2 tens=0 unit=0
+# ** Note: $finish    : ../src/encode_bcd_tb.v(68)
+#    Time: 5920 ns  Iteration: 0  Instance: /bcd_encode_tb
+# 1
+# Break in Module bcd_encode_tb at ../src/encode_bcd_tb.v line 68

@@ -228,15 +228,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "swap_display",
-					"strict" : false
-				},
-				{
 					"name" : "display",
 					"strict" : false
 				},
 				{
-					"name" : "setup_minute_month",
+					"name" : "swap_display",
 					"strict" : false
 				},
 				{
@@ -249,6 +245,10 @@
 				},
 				{
 					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "setup_minute_month",
 					"strict" : false
 				},
 				{

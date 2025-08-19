@@ -43,16 +43,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:38:29  AUGUST 07, 2025"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
-set_global_assignment -name VERILOG_FILE ../hdl/year/years.v
-set_global_assignment -name VERILOG_FILE ../hdl/top/top.v
-set_global_assignment -name VERILOG_FILE ../hdl/second/tick.v
-set_global_assignment -name VERILOG_FILE ../hdl/second/seconds.v
-set_global_assignment -name VERILOG_FILE ../hdl/month/months.v
-set_global_assignment -name VERILOG_FILE ../hdl/minute/minutes.v
-set_global_assignment -name VERILOG_FILE ../hdl/led7/led7seg.v
-set_global_assignment -name VERILOG_FILE ../hdl/led7/decode.v
-set_global_assignment -name VERILOG_FILE ../hdl/hour/hours.v
-set_global_assignment -name VERILOG_FILE ../hdl/day/days.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -131,4 +121,19 @@ set_location_assignment PIN_M23 -to setup_hour_year
 set_location_assignment PIN_M21 -to setup_minute_month
 set_location_assignment PIN_N21 -to setup_second_day
 set_location_assignment PIN_AC27 -to swap_display
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE ../hdl/encode_bcd.v
+set_global_assignment -name VERILOG_FILE ../hdl/bcd_encode.v
+set_global_assignment -name VERILOG_FILE ../hdl/years.v
+set_global_assignment -name VERILOG_FILE ../hdl/top.v
+set_global_assignment -name VERILOG_FILE ../hdl/tick.v
+set_global_assignment -name VERILOG_FILE ../hdl/seconds.v
+set_global_assignment -name VERILOG_FILE ../hdl/months.v
+set_global_assignment -name VERILOG_FILE ../hdl/minutes.v
+set_global_assignment -name VERILOG_FILE ../hdl/led7seg.v
+set_global_assignment -name VERILOG_FILE ../hdl/hours.v
+set_global_assignment -name VERILOG_FILE ../hdl/decode.v
+set_global_assignment -name VERILOG_FILE ../hdl/days.v
+set_global_assignment -name VERILOG_FILE ../hdl/control_unit.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

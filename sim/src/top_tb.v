@@ -27,13 +27,14 @@ initial begin
     rst = 1;
     display =0;
     setup_second_day =0;
-    setup_hour_month =0;
-    setup_minute_year =0;
+    setup_minute_month =0;
+    setup_hour_year =0;
     swap_display = 0;
     #10;
     rst =0;
-    #1800000;
-    // display =1;
+    #1800;
+     display =1;
+    
     // setup = 1;
     // #50;
     // setup = 0;
@@ -41,7 +42,7 @@ initial begin
     // display = 0;
     // #50;
     swap_display = 1;
-     #1800000;
+     #1800;
     $stop;
     // if(seconds.sec == 6'd10) begin
     //     $display("Stop!");
